@@ -5,7 +5,9 @@ LABEL maintainer="blacklacost@gmail.com"
 ENV PYTHONUNBUFFERED 1
 
 COPY ./requirements.txt /requirements.txt
+RUN apt-get update && apt-get install -y libpq-dev gcc
 RUN pip install --no-cache-dir -r /requirements.txt
+RUN apt-get clean
 
 RUN mkdir /app
 WORKDIR /app
