@@ -1,0 +1,17 @@
+name: Django-Testing
+
+on:
+  push:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  testing:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Git clone my repo
+        uses: actions/checkout@v1
+      - name: Django testing
+        run: docker-compose run app sh -c "python manage.py test"
