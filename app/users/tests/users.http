@@ -1,0 +1,51 @@
+POST http://localhost:8000/api/users/create/ HTTP/1.1
+content-type: application/json
+
+{
+  "email": "test@test.com",
+  "password": "test1",
+  "name": "Test name"
+}
+
+###
+POST http://localhost:8000/api/users/token/ HTTP/1.1
+content-type: application/json
+
+{
+  "email": "test@test.com",
+  "password": "test1"
+}
+
+
+###
+GET http://localhost:8000/api/users/me/ HTTP/1.1
+Authorization: Token 2b04cd8e61ebf5d3a76dad1489878d2d769f338f
+
+###
+PATCH http://localhost:8000/api/users/me/ HTTP/1.1
+Authorization: Token 2b04cd8e61ebf5d3a76dad1489878d2d769f338f
+content-type: application/json
+
+{
+  "name": "Patch Test name"
+}
+
+###
+PUT http://localhost:8000/api/users/me/ HTTP/1.1
+Authorization: Token 2b04cd8e61ebf5d3a76dad1489878d2d769f338f
+content-type: application/json
+
+{
+  "email": "test@test.com",
+  "password": "test2",
+  "name": "Put Test name"
+}
+
+###
+POST http://localhost:8000/api/users/token/ HTTP/1.1
+content-type: application/json
+
+{
+  "email": "test@test.com",
+  "password": "test2"
+}
